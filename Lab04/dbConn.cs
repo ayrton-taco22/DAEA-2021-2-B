@@ -10,12 +10,12 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 
-namespace Lab03
+namespace Lab04
 {
     public partial class dbConn : Form
             
     {
-        SqlConnection conn;
+        public SqlConnection conn;
         public dbConn()
         {
             InitializeComponent();
@@ -50,6 +50,8 @@ namespace Lab03
                 txtBaseDatos.Enabled = false;
                 MessageBox.Show("Conectado satisfactoriamente");
                 btnDesconectar.Enabled = true;
+                btnCurso.Enabled = true;
+                btnPersona.Enabled = true;
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al conectar el servidor: \n" + ex.ToString());
@@ -87,6 +89,8 @@ namespace Lab03
                     txtServidor.Enabled = true;
                     txtBaseDatos.Enabled = true;
                     MessageBox.Show("Conexion cerrada satisfactoriamente");
+                    btnPersona.Enabled = false;
+                    btnCurso.Enabled = false;
                 }
                 else
                 {
@@ -111,6 +115,18 @@ namespace Lab03
                 txtUsuario.Enabled = true;
                 txtPassword.Enabled = true;
             }
+        }
+
+        private void btnPersona_Click(object sender, EventArgs e)
+        {
+            Persona persona = new Persona(conn);
+            persona.Show();
+        }
+
+        private void btnCurso_Click(object sender, EventArgs e)
+        {
+            Curso curso = new Curso(conn);
+            curso.Show();
         }
     }
 }

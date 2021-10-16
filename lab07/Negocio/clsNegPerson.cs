@@ -16,5 +16,13 @@ namespace Negocio
         {
             return daoPerson.GetAll();
         }
+        public DataTable FindPersonName(String nombre)
+        {
+            return daoPerson.FindPersonName(nombre);
+        }
+        public DataTable FindPersonLastName(String apellido)
+        {
+            return daoPerson.FindPersonLastName(apellido);
+        }
     }
 }

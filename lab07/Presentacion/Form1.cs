@@ -32,5 +32,30 @@ namespace Presentacion
             dgDatos.DataSource = dt;
             dgDatos.Refresh();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            clsNegPerson np = new clsNegPerson();
+            dt = np.FindPersonName(txtBuscar.Text);
+
+            dgDatos.DataSource = dt;
+            dgDatos.Refresh();
+        }
+
+        private void btnBuscarApellido_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            clsNegPerson np = new clsNegPerson();
+            dt = np.FindPersonLastName(txtBuscar.Text);
+
+            dgDatos.DataSource = dt;
+            dgDatos.Refresh();
+        }
     }
 }
